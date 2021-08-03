@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
 	separator: {
 		height: 10,
 	},
+	repoItem: {
+		padding: 10,
+		backgroundColor: "white",
+	},
 });
 
 const repositories = [
@@ -63,14 +67,9 @@ const RepositoryList = () => {
 			ItemSeparatorComponent={ItemSeparator}
 			// other props
 			keyExtractor={(item) => item.id}
-			renderItem={({ item }) => {
-				const obj = Object.entries(item);
-				return (
-					<RepositoryItem
-						arr={obj.filter((v, i) => i && i !== obj.length - 1)}
-					/>
-				);
-			}}
+			renderItem={({ item }) => (
+				<RepositoryItem {...item} style={styles.repoItem} />
+			)}
 		/>
 	);
 };
