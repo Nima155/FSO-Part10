@@ -1,10 +1,12 @@
 import React from "react";
 import { Pressable } from "react-native";
 import Text from "./Text";
-export default function AppBarTab({ text, onPress }) {
+import { Link } from "react-router-native";
+export default function AppBarTab({ onPress, path, text }) {
 	return (
-		<Pressable onPress={onPress}>
+		<Link onPress={onPress} component={Pressable} to={path}>
 			<Text style={{ padding: 10, color: "white" }}>{text}</Text>
-		</Pressable>
+		</Link>
 	);
 }
+//
