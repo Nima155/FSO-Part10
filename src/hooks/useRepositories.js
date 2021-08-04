@@ -23,7 +23,7 @@ const useRepositories = () => {
 	// 	fetchRepositories();
 	// }, []);
 
-	return { repositories: data, loading, refetch };
+	return { repositories: data && data.repositories, loading, refetch };
 };
 
 export default useRepositories;

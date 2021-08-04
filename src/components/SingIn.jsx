@@ -27,7 +27,7 @@ import { useStyles } from "../styles/styles";
 const SignIn = () => {
 	const styles = useStyles();
 	const onSubmit = (values) => {
-		console.log(values, "hi");
+		console.log(values);
 	};
 
 	return (

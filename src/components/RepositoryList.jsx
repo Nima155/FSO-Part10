@@ -13,10 +13,9 @@ const RepositoryList = () => {
 	const styles = useStyles();
 	const { repositories } = useRepositories(); // custom hook for fetching data
 
-	const repositoryNodes =
-		repositories && repositories.repositories
-			? repositories.repositories.edges.map((edge) => edge.node)
-			: [];
+	const repositoryNodes = repositories
+		? repositories.edges.map((edge) => edge.node)
+		: [];
 
 	return (
 		<FlatList
