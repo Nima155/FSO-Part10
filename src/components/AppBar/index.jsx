@@ -2,7 +2,7 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 
 import AppBarTab from "./AppBarTab";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "../../styles/styles";
 // import { Link } from "react-router-native";
 
 const AppBar = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import Text from "./Text";
+import Text from "../Text";
 import { View } from "react-native";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "../../styles/styles";
 
 export default function CardStats({ stats }) {
 	const styles = useStyles();

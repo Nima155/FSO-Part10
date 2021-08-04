@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Image } from "react-native";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "../../styles/styles";
 
-import Text from "./Text";
+import Text from "../Text";
 
 export default function CardBio({ bio }) {
 	const styles = useStyles();
@@ -11,7 +11,7 @@ export default function CardBio({ bio }) {
 			<Image source={{ uri: bio.ownerAvatarUrl }} style={styles.avatarImage} />
 
 			<View style={styles.cardBioAboutContainer}>
-				<Text fontWeight="bold" style={styles.textBox}>
+				<Text fontWeight="bold" fontSize="subheading" style={styles.textBox}>
 					{bio.fullName}
 				</Text>
 
