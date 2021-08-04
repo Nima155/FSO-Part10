@@ -1,20 +1,21 @@
 import React from "react";
 import { Text as NativeText, StyleSheet } from "react-native";
+import { useTheme } from "../styles/themes";
 
-import theme from "../theme";
+const theme = useTheme();
 
 const styles = StyleSheet.create({
 	text: {
-		color: theme.colors.textPrimary,
+		color: theme.color.textTertiary,
 		fontSize: theme.fontSizes.body,
-		fontFamily: theme.fonts.main,
+		fontFamily: theme.fonts.primary,
 		fontWeight: theme.fontWeights.normal,
 	},
 	colorTextSecondary: {
-		color: theme.colors.textSecondary,
+		color: theme.color.textSecondary,
 	},
 	colorPrimary: {
-		color: theme.colors.primary,
+		color: theme.color.primaryBackground,
 	},
 	fontSizeSubheading: {
 		fontSize: theme.fontSizes.subheading,

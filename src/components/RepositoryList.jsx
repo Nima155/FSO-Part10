@@ -1,16 +1,7 @@
 import React from "react";
-import { FlatList, View, StyleSheet } from "react-native";
+import { FlatList, View } from "react-native";
 import RepositoryItem from "./RepositoryItem";
-const styles = StyleSheet.create({
-	separator: {
-		height: 10,
-	},
-	repoItem: {
-		padding: 10,
-		backgroundColor: "white",
-	},
-});
-
+import { useStyles } from "../styles/styles";
 const repositories = [
 	{
 		id: "jaredpalmer.formik",
@@ -58,9 +49,13 @@ const repositories = [
 	},
 ];
 
-const ItemSeparator = () => <View style={styles.separator} />;
+const ItemSeparator = () => {
+	const { cardSeparator } = useStyles();
+	return <View style={cardSeparator} />;
+};
 
 const RepositoryList = () => {
+	const styles = useStyles();
 	return (
 		<FlatList
 			data={repositories}
@@ -68,7 +63,7 @@ const RepositoryList = () => {
 			// other props
 			keyExtractor={(item) => item.id}
 			renderItem={({ item }) => (
-				<RepositoryItem {...item} style={styles.repoItem} />
+				<RepositoryItem {...item} style={styles.cardContainer} />
 			)}
 		/>
 	);

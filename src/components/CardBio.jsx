@@ -1,53 +1,31 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
-import theme from "../theme";
-import Text from "./Text";
-const styles = StyleSheet.create({
-	imageStyle: {
-		height: 50,
-		width: 50,
-		borderRadius: theme.borders.smoothSquare,
-		marginRight: 10,
-	},
-	mainViewStyle: {
-		flexGrow: 2,
-		display: "flex",
-		marginBottom: 10,
-		flexDirection: "row",
-	},
-	secondaryViewStyle: {
-		justifyContent: "space-evenly",
+import { View, Image } from "react-native";
+import { useStyles } from "../styles/styles";
 
-		flexShrink: 1,
-	},
-	languageBox: {
-		backgroundColor: theme.colors.primary,
-		color: "white",
-		padding: 5,
-		borderRadius: theme.borders.smoothSquare,
-		textAlign: "center",
-		alignSelf: "flex-start",
-	},
-	textStyle: {
-		margin: theme.margins.small,
-	},
-});
+import Text from "./Text";
 
 export default function CardBio({ bio }) {
+	const styles = useStyles();
 	return (
-		<View style={styles.mainViewStyle}>
-			<Image source={{ uri: bio.ownerAvatarUrl }} style={styles.imageStyle} />
+		<View style={styles.cardBioContainer}>
+			<Image source={{ uri: bio.ownerAvatarUrl }} style={styles.avatarImage} />
 
-			<View style={styles.secondaryViewStyle}>
-				<Text fontWeight="bold" style={styles.textStyle}>
+			<View style={styles.cardBioAboutContainer}>
+				<Text fontWeight="bold" style={styles.textBox}>
 					{bio.fullName}
 				</Text>
 
-				<Text color="textSecondary" style={styles.textStyle}>
+				<Text color="textSecondary" style={styles.textBox}>
 					{bio.description}
 				</Text>
 
-				<Text style={[styles.languageBox, styles.textStyle]}>
+				<Text
+					style={[
+						{ alignSelf: "flex-start" },
+						styles.textBox,
+						styles.primaryContainer,
+					]}
+				>
 					{bio.language}
 				</Text>
 			</View>

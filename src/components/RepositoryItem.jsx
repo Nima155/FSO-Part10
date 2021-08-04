@@ -18,6 +18,7 @@ export default function RepositoryItem({
 	description,
 	language,
 	fullName,
+
 	ownerAvatarUrl,
 }) {
 	const stats = {
@@ -37,7 +38,6 @@ export default function RepositoryItem({
 	return (
 		<View style={style}>
 			<CardBio bio={bio} />
-
 			<CardStats stats={stats} />
 		</View>
 	);

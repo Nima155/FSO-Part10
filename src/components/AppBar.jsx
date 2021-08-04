@@ -1,23 +1,14 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
-import Constants from "expo-constants";
+import { View, ScrollView } from "react-native";
 
-import theme from "../theme";
 import AppBarTab from "./AppBarTab";
+import { useStyles } from "../styles/styles";
 // import { Link } from "react-router-native";
-const styles = StyleSheet.create({
-	container: {
-		paddingTop: Constants.statusBarHeight,
-		backgroundColor: theme.colors.textPrimary,
-		opacity: 0.85,
-		flexDirection: "row",
-	},
-	// ...
-});
 
 const AppBar = () => {
+	const styles = useStyles();
 	return (
-		<View style={styles.container}>
+		<View style={styles.appBarContainer}>
 			{/* Scroll view allows users to scroll 
 			when there are too many tabs */}
 			<ScrollView horizontal>

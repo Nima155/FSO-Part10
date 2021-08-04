@@ -1,28 +1,18 @@
 import React from "react";
 import Text from "./Text";
-import { View, StyleSheet } from "react-native";
-
-const styles = StyleSheet.create({
-	textStyle: {
-		textAlign: "center",
-	},
-	viewStyle: {
-		display: "flex",
-		flexGrow: 0,
-		justifyContent: "space-evenly",
-		flexDirection: "row",
-	},
-});
+import { View } from "react-native";
+import { useStyles } from "../styles/styles";
 
 export default function CardStats({ stats }) {
+	const styles = useStyles();
 	return (
-		<View style={styles.viewStyle}>
+		<View style={styles.statsContainer}>
 			{Object.entries(stats).map((e, i) => (
 				<View key={i}>
-					<Text style={styles.textStyle} fontWeight="bold">
+					<Text style={styles.statsText} fontWeight="bold">
 						{+e[1] > 1000 ? (+e[1] / 1e3).toFixed(1) + "K" : e[1]}
 					</Text>
-					<Text style={styles.textStyle} color="textSecondary">
+					<Text style={styles.statsText} color="textSecondary">
 						{e[0]}
 					</Text>
 				</View>
