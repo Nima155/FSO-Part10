@@ -6,8 +6,11 @@ export const palette = {
 	blue: "#0366d6",
 	white: "#FFFFFF",
 	lightGray: "#e1e4e8",
-	system: "System",
 	red: "#d73a4a",
+	// font families
+	system: "System",
+	roboto: "Roboto",
+	arial: "Arial",
 };
 // #24292e
 // v586069

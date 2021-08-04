@@ -2,7 +2,7 @@
 //will define primary colours, fonts,
 // spacings, etc
 import { palette } from "./palette";
-
+import { Platform } from "react-native";
 const theme = {
 	color: {
 		appBarBackground: palette.grayishBlack85,
@@ -19,7 +19,11 @@ const theme = {
 		subheading: 16,
 	},
 	fonts: {
-		primary: palette.system,
+		primary: Platform.select({
+			android: palette.roboto,
+			ios: palette.arial,
+			default: palette.system,
+		}),
 	},
 	fontWeights: {
 		normal: "400",
