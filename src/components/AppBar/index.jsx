@@ -3,10 +3,26 @@ import { View, ScrollView } from "react-native";
 
 import AppBarTab from "./AppBarTab";
 import { useStyles } from "../../styles/styles";
+import { useApolloClient, useQuery } from "@apollo/client";
+import { GET_AUTHORIZED_USER } from "../../graphql/queries";
+import useAuthStorage from "../../hooks/useAuthStorage";
 // import { Link } from "react-router-native";
 
 const AppBar = () => {
 	const styles = useStyles();
+
+	const { data } = useQuery(GET_AUTHORIZED_USER);
+
+	const authStorage = useAuthStorage();
+	const apolloClient = useApolloClient();
+	const userIsAuthorized = data && data.authorizedUser;
+	const onPressSign = async () => {
+		if (userIsAuthorized) {
+			await authStorage.removeAccessToken(); // order of execution matters here.. first we remove and then we reset
+			apolloClient.resetStore(); // this resets the store and executes any outstanding queries
+		}
+	};
+
 	return (
 		<View style={styles.appBarContainer}>
 			{/* Scroll view allows users to scroll 
@@ -14,7 +30,11 @@ const AppBar = () => {
 			<ScrollView horizontal>
 				{/* really barebones AppBarTab component */}
 				<AppBarTab text="Repositories" path="/" />
-				<AppBarTab text="Sign in" path="/sign_in" />
+				<AppBarTab
+					text={userIsAuthorized ? "Sign Out" : "Sign in"}
+					path={userIsAuthorized ? "/" : "/sign_in"}
+					onPress={onPressSign}
+				/>
 			</ScrollView>
 		</View>
 	);
