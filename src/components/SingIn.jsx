@@ -5,6 +5,8 @@ import { Pressable, View } from "react-native";
 import Text from "./Text";
 import * as Yup from "yup";
 import { useStyles } from "../styles/styles";
+import useSignIn from "../hooks/useSignIn";
+import { useHistory } from "react-router-native";
 
 // const styles = StyleSheet.create({
 // 	buttonTextStyle: {
@@ -26,8 +28,16 @@ import { useStyles } from "../styles/styles";
 
 const SignIn = () => {
 	const styles = useStyles();
-	const onSubmit = (values) => {
-		console.log(values);
+	const [signIn] = useSignIn();
+	const history = useHistory();
+	const onSubmit = async ({ username, password }) => {
+		try {
+			const { data } = await signIn({ username, password });
+			console.log(data);
+			history.push("/");
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 
 	return (
