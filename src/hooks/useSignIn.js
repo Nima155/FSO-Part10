@@ -8,7 +8,7 @@ export default function useSignIn() {
 	const authStorage = useAuthStorage();
 	const apolloClient = useApolloClient();
 	const signIn = async ({ username, password }) => {
-		const { data } = await login({
+		const res = await login({
 			variables: {
 				credentials: {
 					username,
@@ -16,10 +16,13 @@ export default function useSignIn() {
 				},
 			},
 		});
-		await authStorage.setAccessToken(data.accessToken);
+
+		await authStorage.setAccessToken(
+			JSON.stringify(res.data.authorize.accessToken)
+		);
 		apolloClient.resetStore(); // to get rid of cached token.. token is cached as it
 		// is returned by a mutation
-		return data;
+		return res;
 	};
 
 	return [signIn, data];

@@ -7,18 +7,18 @@ class AuthStorage {
 	}
 
 	async getAccessToken() {
-		const tk = await SecureStore.getItemAsync(`${this.namespace}:authToken`);
+		const tk = await SecureStore.getItemAsync(`${this.namespace}-authToken`);
 		return tk ? JSON.parse(tk) : null;
 	}
 
 	async setAccessToken(accessToken) {
 		// Add the access token to the storage
-		await SecureStore.setItemAsync(`${this.namespace}:authToken`, accessToken);
+		await SecureStore.setItemAsync(`${this.namespace}-authToken`, accessToken);
 	}
 
 	async removeAccessToken() {
 		// Remove the access token from the storage
-		await SecureStore.deleteItemAsync(`${this.namespace}:authToken`);
+		await SecureStore.deleteItemAsync(`${this.namespace}-authToken`);
 	}
 }
 

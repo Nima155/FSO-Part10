@@ -5,6 +5,9 @@ export const SIGN_IN = gql`
 		authorize(credentials: $credentials) {
 			accessToken
 			expiresAt
+			user {
+				username
+			}
 		}
 	}
 `;

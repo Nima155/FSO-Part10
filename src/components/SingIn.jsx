@@ -30,11 +30,13 @@ const SignIn = () => {
 	const styles = useStyles();
 	const [signIn] = useSignIn();
 	const history = useHistory();
+
 	const onSubmit = async ({ username, password }) => {
 		try {
+			// eslint-disable-next-line no-unused-vars
 			const { data } = await signIn({ username, password });
-			console.log(data);
-			history.push("/");
+			// console.log(data);
+			history.push("/"); // redirect back to home
 		} catch (error) {
 			console.log(error.message);
 		}
