@@ -5,12 +5,16 @@ import createApolloClient from "./src/utils/apolloClient";
 import Main from "./src/components/Main";
 
 const apolloClient = createApolloClient();
-const App = () => (
-	<NativeRouter>
-		<ApolloProvider client={apolloClient}>
-			<Main />
-		</ApolloProvider>
-	</NativeRouter>
-);
+
+const App = () => {
+	// console.log(Constants.manifest); // contains the contents of the config file for Expo
+	return (
+		<NativeRouter>
+			<ApolloProvider client={apolloClient}>
+				<Main />
+			</ApolloProvider>
+		</NativeRouter>
+	);
+};
 
 export default App;
