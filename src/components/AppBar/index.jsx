@@ -15,7 +15,9 @@ const AppBar = () => {
 
 	const authStorage = useAuthStorage();
 	const apolloClient = useApolloClient();
-	const userIsAuthorized = data && data.authorizedUser;
+
+	const userIsAuthorized = data && data.authorizedUser != null;
+
 	const onPressSign = async () => {
 		if (userIsAuthorized) {
 			await authStorage.removeAccessToken(); // order of execution matters here.. first we remove and then we reset
