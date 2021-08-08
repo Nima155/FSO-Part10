@@ -25,23 +25,8 @@ import { useHistory } from "react-router-native";
 // 		justifyContent: "space-evenly",
 // 	},
 // });
-
-const SignIn = () => {
+export const SignInForm = ({ onSubmit }) => {
 	const styles = useStyles();
-	const [signIn] = useSignIn();
-	const history = useHistory();
-
-	const onSubmit = async ({ username, password }) => {
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const { data } = await signIn({ username, password });
-			// console.log(data);
-			history.push("/"); // redirect back to home
-		} catch (error) {
-			console.log(error.message);
-		}
-	};
-
 	return (
 		<Formik
 			initialValues={{ username: "", password: "" }}
@@ -59,14 +44,16 @@ const SignIn = () => {
 						name="username"
 						placeholder="Username"
 						style={{ marginTop: 10 }}
+						testID="usernameField"
 					/>
 					<FormikTextInput
 						name="password"
 						placeholder="Password"
 						secureTextEntry
+						testID="passwordField"
 					/>
 
-					<Pressable onPress={handleSubmit}>
+					<Pressable onPress={handleSubmit} testID="submitButton">
 						<Text
 							style={[styles.primaryContainer, styles.textBox, { padding: 9 }]}
 						>
@@ -77,6 +64,24 @@ const SignIn = () => {
 			)}
 		</Formik>
 	);
+};
+
+const SignIn = () => {
+	const [signIn] = useSignIn();
+	const history = useHistory();
+
+	const onSubmit = async ({ username, password }) => {
+		try {
+			// eslint-disable-next-line no-unused-vars
+			const { data } = await signIn({ username, password });
+			// console.log(data);
+			history.push("/"); // redirect back to home
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
+	return <SignInForm onSubmit={onSubmit} />;
 };
 
 export default SignIn;

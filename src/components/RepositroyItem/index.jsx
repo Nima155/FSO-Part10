@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import CardStats from "./CardStats";
 import CardBio from "./CardBio";
+
 // description: "Predictable state container for JavaScript apps",
 // language: "TypeScript",
 // forksCount: 13902,
@@ -18,7 +19,7 @@ export default function RepositoryItem({
 	description,
 	language,
 	fullName,
-
+	testID,
 	ownerAvatarUrl,
 }) {
 	const stats = {
@@ -36,7 +37,7 @@ export default function RepositoryItem({
 	};
 
 	return (
-		<View style={style}>
+		<View style={style} testID={testID}>
 			<CardBio bio={bio} />
 			<CardStats stats={stats} />
 		</View>

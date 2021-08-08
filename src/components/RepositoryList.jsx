@@ -8,15 +8,11 @@ const ItemSeparator = () => {
 	const { cardSeparator } = useStyles();
 	return <View style={cardSeparator} />;
 };
-
-const RepositoryList = () => {
+export const RepositoryListContainer = ({ repositories }) => {
 	const styles = useStyles();
-	const { repositories } = useRepositories(); // custom hook for fetching data
-
 	const repositoryNodes = repositories
 		? repositories.edges.map((edge) => edge.node)
 		: [];
-
 	return (
 		<FlatList
 			data={repositoryNodes}
@@ -24,10 +20,19 @@ const RepositoryList = () => {
 			// other props
 			keyExtractor={(item) => item.id}
 			renderItem={({ item }) => (
-				<RepositoryItem {...item} style={styles.cardContainer} />
+				<RepositoryItem
+					testID="repoItem"
+					{...item}
+					style={styles.cardContainer}
+				/>
 			)}
 		/>
 	);
+};
+const RepositoryList = () => {
+	const { repositories } = useRepositories(); // custom hook for fetching data
+
+	return <RepositoryListContainer repositories={repositories} />;
 };
 
 export default RepositoryList;

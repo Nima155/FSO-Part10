@@ -31,7 +31,7 @@ const AppBar = () => {
 			when there are too many tabs */}
 			<ScrollView horizontal>
 				{/* really barebones AppBarTab component */}
-				<AppBarTab text="Repositories" path="/" />
+				<AppBarTab testID="repoTab" text="Repositories" path="/" />
 				<AppBarTab
 					text={userIsAuthorized ? "Sign Out" : "Sign in"}
 					path={userIsAuthorized ? "/" : "/sign_in"}
