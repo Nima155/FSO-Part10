@@ -1,8 +1,9 @@
 import React from "react";
-import { FlatList, View } from "react-native";
-import RepositoryItem from "./RepositroyItem";
+import { FlatList, Pressable, View } from "react-native";
+import RepositoryItem from "./RepositoryItem";
 import { useStyles } from "../styles/styles";
 import useRepositories from "../hooks/useRepositories";
+import { useHistory } from "react-router-native";
 
 const ItemSeparator = () => {
 	const { cardSeparator } = useStyles();
@@ -10,6 +11,7 @@ const ItemSeparator = () => {
 };
 export const RepositoryListContainer = ({ repositories }) => {
 	const styles = useStyles();
+	const history = useHistory();
 	const repositoryNodes = repositories
 		? repositories.edges.map((edge) => edge.node)
 		: [];
@@ -20,11 +22,13 @@ export const RepositoryListContainer = ({ repositories }) => {
 			// other props
 			keyExtractor={(item) => item.id}
 			renderItem={({ item }) => (
-				<RepositoryItem
-					testID="repoItem"
-					{...item}
-					style={styles.cardContainer}
-				/>
+				<Pressable onPress={() => history.push(item.id)}>
+					<RepositoryItem
+						testID="repoItem"
+						{...item}
+						style={styles.cardContainer}
+					/>
+				</Pressable>
 			)}
 		/>
 	);

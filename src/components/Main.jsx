@@ -5,11 +5,12 @@ import AppBar from "./AppBar";
 import { Switch, Route } from "react-router";
 import RepositoryList from "./RepositoryList";
 import { Redirect } from "react-router-native";
-import SignIn from "./SingIn";
+import SignIn from "./SignIn";
 import { useStyles } from "../styles/styles";
+import RepositoryItem from "./RepositoryItem";
 
 const Main = () => {
-	let styles = useStyles();
+	const styles = useStyles();
 	return (
 		<>
 			<View style={styles.container}>
@@ -17,6 +18,9 @@ const Main = () => {
 				<Switch>
 					<Route path="/sign_in" exact>
 						<SignIn />
+					</Route>
+					<Route path="/:id">
+						<RepositoryItem showLink={true} style={styles.cardContainer} />
 					</Route>
 					<Route path="/" exact>
 						<RepositoryList />
