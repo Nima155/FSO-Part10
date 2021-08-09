@@ -5,7 +5,7 @@ import { useStyles } from "../styles/styles";
 import useRepositories from "../hooks/useRepositories";
 import { useHistory } from "react-router-native";
 
-const ItemSeparator = () => {
+export const ItemSeparator = () => {
 	const { cardSeparator } = useStyles();
 	return <View style={cardSeparator} />;
 };

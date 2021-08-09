@@ -16,7 +16,7 @@ const FormikTextInput = ({ style, name, ...props }) => {
 	const showError = meta.touched && meta.error;
 
 	return (
-		<View style={styles.textBox}>
+		<View style={styles.textBoxLarge}>
 			<TextInput
 				onChangeText={(value) => helpers.setValue(value)}
 				onBlur={() => helpers.setTouched(true)}

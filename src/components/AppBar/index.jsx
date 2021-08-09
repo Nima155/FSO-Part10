@@ -32,6 +32,9 @@ const AppBar = () => {
 			<ScrollView horizontal>
 				{/* really barebones AppBarTab component */}
 				<AppBarTab testID="repoTab" text="Repositories" path="/" />
+				{userIsAuthorized && (
+					<AppBarTab text="Create a review" path="/create_review" />
+				)}
 				<AppBarTab
 					text={userIsAuthorized ? "Sign Out" : "Sign in"}
 					path={userIsAuthorized ? "/" : "/sign_in"}

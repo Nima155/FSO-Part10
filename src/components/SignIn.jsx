@@ -43,7 +43,7 @@ export const SignInForm = ({ onSubmit }) => {
 					<FormikTextInput
 						name="username"
 						placeholder="Username"
-						style={{ marginTop: 10 }}
+						style={styles.firstElement}
 						testID="usernameField"
 					/>
 					<FormikTextInput
@@ -55,7 +55,11 @@ export const SignInForm = ({ onSubmit }) => {
 
 					<Pressable onPress={handleSubmit} testID="submitButton">
 						<Text
-							style={[styles.primaryContainer, styles.textBox, { padding: 9 }]}
+							style={[
+								styles.primaryContainer,
+								styles.textBoxLarge,
+								{ padding: 9 },
+							]}
 						>
 							Sign in
 						</Text>

@@ -7,7 +7,9 @@ import RepositoryList from "./RepositoryList";
 import { Redirect } from "react-router-native";
 import SignIn from "./SignIn";
 import { useStyles } from "../styles/styles";
-import RepositoryItem from "./RepositoryItem";
+
+import SingleRepositoryItem from "./SingleRepositoryItem";
+import ReviewForm from "./ReviewForm";
 
 const Main = () => {
 	const styles = useStyles();
@@ -19,8 +21,11 @@ const Main = () => {
 					<Route path="/sign_in" exact>
 						<SignIn />
 					</Route>
+					<Route path="/create_review">
+						<ReviewForm />
+					</Route>
 					<Route path="/:id">
-						<RepositoryItem showLink={true} style={styles.cardContainer} />
+						<SingleRepositoryItem />
 					</Route>
 					<Route path="/" exact>
 						<RepositoryList />

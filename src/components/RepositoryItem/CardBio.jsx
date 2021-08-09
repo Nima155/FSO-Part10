@@ -11,18 +11,22 @@ export default function CardBio({ bio }) {
 			<Image source={{ uri: bio.ownerAvatarUrl }} style={styles.avatarImage} />
 
 			<View style={styles.cardBioAboutContainer}>
-				<Text fontWeight="bold" fontSize="subheading" style={styles.textBox}>
+				<Text
+					fontWeight="bold"
+					fontSize="subheading"
+					style={styles.textBoxLarge}
+				>
 					{bio.fullName}
 				</Text>
 
-				<Text color="textSecondary" style={styles.textBox}>
+				<Text color="textSecondary" style={styles.textBoxLarge}>
 					{bio.description}
 				</Text>
 
 				<Text
 					style={[
 						{ alignSelf: "flex-start" },
-						styles.textBox,
+						styles.textBoxLarge,
 						styles.primaryContainer,
 					]}
 				>

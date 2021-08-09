@@ -18,6 +18,20 @@ export const GET_INDIVIDUAL_REPOSITORY = gql`
 		repository(id: $id) {
 			...CardDetails
 			url
+			reviews {
+				edges {
+					node {
+						id
+						text
+						rating
+						createdAt
+						user {
+							id
+							username
+						}
+					}
+				}
+			}
 		}
 	}
 `;

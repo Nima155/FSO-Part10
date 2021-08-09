@@ -40,10 +40,15 @@ export const useStyles = () => {
 			borderRadius: theme.borders.smooth,
 			textAlign: "center",
 		},
-		textBox: {
+		textBoxLarge: {
 			marginBottom: theme.spacing.L,
 			marginRight: theme.spacing.L,
 			marginLeft: theme.spacing.L,
+		},
+		textBoxMedium: {
+			marginBottom: theme.spacing.M,
+			marginRight: theme.spacing.M,
+			marginLeft: theme.spacing.M,
 		},
 		avatarImage: {
 			height: 50,
@@ -72,6 +77,20 @@ export const useStyles = () => {
 		},
 		statsText: {
 			textAlign: "center",
+		},
+		reviewScoreContainer: {
+			marginRight: theme.spacing.L,
+			justifyContent: "center",
+			alignItems: "center",
+			borderRadius: 25,
+			borderStyle: theme.borders.solid,
+			borderColor: theme.color.primaryBackground,
+			borderWidth: 1,
+			height: 50,
+			width: 50,
+		},
+		firstElement: {
+			marginTop: theme.spacing.L,
 		},
 	});
 	return styles;
