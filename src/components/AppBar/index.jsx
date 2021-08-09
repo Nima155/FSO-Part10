@@ -35,11 +35,13 @@ const AppBar = () => {
 				{userIsAuthorized && (
 					<AppBarTab text="Create a review" path="/create_review" />
 				)}
+
 				<AppBarTab
 					text={userIsAuthorized ? "Sign Out" : "Sign in"}
 					path={userIsAuthorized ? "/" : "/sign_in"}
 					onPress={onPressSign}
 				/>
+				{!userIsAuthorized && <AppBarTab text="Sign Up" path="/sign_up" />}
 			</ScrollView>
 		</View>
 	);

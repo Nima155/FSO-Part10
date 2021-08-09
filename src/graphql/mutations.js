@@ -11,17 +11,19 @@ export const SIGN_IN = gql`
 		}
 	}
 `;
-// mutation {
-// 	createReview(review: {repositoryName: "lombok", ownerName: "rzwitserloot", rating: 44, text: "mediocre at best"}) {
-// 	  user {
-// 		username
-// 	  }
-// 	}
-//   }
+
 export const CREATE_REVIEW = gql`
 	mutation CreateReview($review: CreateReviewInput) {
 		createReview(review: $review) {
 			repositoryId
+		}
+	}
+`;
+
+export const CREATE_USER = gql`
+	mutation CreateUser($user: CreateUserInput) {
+		createUser(user: $user) {
+			username
 		}
 	}
 `;

@@ -10,6 +10,7 @@ import { useStyles } from "../styles/styles";
 
 import SingleRepositoryItem from "./SingleRepositoryItem";
 import ReviewForm from "./ReviewForm";
+import SignUp from "./SignUp";
 
 const Main = () => {
 	const styles = useStyles();
@@ -18,6 +19,9 @@ const Main = () => {
 			<View style={styles.container}>
 				<AppBar />
 				<Switch>
+					<Route path="/sign_up">
+						<SignUp />
+					</Route>
 					<Route path="/sign_in" exact>
 						<SignIn />
 					</Route>

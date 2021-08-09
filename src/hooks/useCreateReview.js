@@ -6,7 +6,7 @@ const useCreateReview = () => {
 	const [createReview, { data }] = useMutation(CREATE_REVIEW);
 
 	async function submitReview(val) {
-		return await createReview({
+		return createReview({
 			variables: {
 				review: {
 					...val,
