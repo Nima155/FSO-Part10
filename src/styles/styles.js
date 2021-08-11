@@ -8,10 +8,18 @@ export const useStyles = () => {
 		tabItem: {
 			color: theme.color.primaryText,
 			padding: theme.spacing.L,
+			marginTop: 30,
+		},
+		searchAndSortContainer: {
+			padding: theme.spacing.L,
 		},
 		container: {
 			flex: 1,
 			backgroundColor: theme.color.appBackground,
+		},
+		centeredContainer: {
+			justifyContent: "center",
+			alignItems: "center",
 		},
 		appBarContainer: {
 			paddingTop: Constants.statusBarHeight,

@@ -35,7 +35,7 @@ const AppBar = () => {
 				{userIsAuthorized && (
 					<AppBarTab text="Create a review" path="/create_review" />
 				)}
-
+				{userIsAuthorized && <AppBarTab text="My reviews" path="/my_reviews" />}
 				<AppBarTab
 					text={userIsAuthorized ? "Sign Out" : "Sign in"}
 					path={userIsAuthorized ? "/" : "/sign_in"}

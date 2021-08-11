@@ -1,24 +1,43 @@
 import { gql } from "@apollo/client";
-import { CARD_DETAILS } from "./fragments";
+import { CARD_DETAILS, PAGE_INFO, REVIEW_INFO } from "./fragments";
 export const GET_REPOSITORIES = gql`
+	${PAGE_INFO}
 	${CARD_DETAILS}
-	query {
-		repositories {
+	query GetRepositories(
+		$orderBy: AllRepositoriesOrderBy
+		$orderDirection: OrderDirection
+		$searchKeyword: String
+		$first: Int
+		$after: String
+	) {
+		repositories(
+			searchKeyword: $searchKeyword
+			orderBy: $orderBy
+			orderDirection: $orderDirection
+			after: $after
+			first: $first
+		) {
 			edges {
+				cursor
 				node {
 					...CardDetails
 				}
 			}
+			pageInfo {
+				...PageDetails
+			}
 		}
 	}
 `;
+
 export const GET_INDIVIDUAL_REPOSITORY = gql`
+	${PAGE_INFO}
 	${CARD_DETAILS}
-	query IndividualRepo($id: ID!) {
+	query IndividualRepo($id: ID!, $first: Int, $after: String) {
 		repository(id: $id) {
 			...CardDetails
 			url
-			reviews {
+			reviews(first: $first, after: $after) {
 				edges {
 					node {
 						id
@@ -31,16 +50,30 @@ export const GET_INDIVIDUAL_REPOSITORY = gql`
 						}
 					}
 				}
+				pageInfo {
+					...PageDetails
+				}
 			}
 		}
 	}
 `;
 
 export const GET_AUTHORIZED_USER = gql`
-	query {
+	${REVIEW_INFO}
+	# default value of getReview is set to false,
+	# so as to avoid unnecessary network loads
+	query GetAuthorizedUser($getReview: Boolean = false) {
 		authorizedUser {
 			id
 			username
+			# include directive... pretty self explanatory
+			reviews @include(if: $getReview) {
+				edges {
+					node {
+						...ReviewDetails
+					}
+				}
+			}
 		}
 	}
 `;

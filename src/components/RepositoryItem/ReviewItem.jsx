@@ -3,7 +3,7 @@ import Text from "../Text";
 import { View } from "react-native";
 import { useStyles } from "../../styles/styles";
 import { format } from "date-fns";
-export default function ReviewItem({ review }) {
+export default function ReviewItem({ review, userMode = false }) {
 	const styles = useStyles();
 
 	return (
@@ -17,7 +17,9 @@ export default function ReviewItem({ review }) {
 					fontSize="subheading"
 					style={styles.textBoxMedium}
 				>
-					{review.node.user.username}
+					{!userMode
+						? review.node.user.username
+						: review.node.repository.fullName}
 				</Text>
 				<Text color="textSecondary" style={styles.textBoxMedium}>
 					{format(new Date(review.node.createdAt), "MM.dd.yyyy")}

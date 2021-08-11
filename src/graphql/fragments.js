@@ -13,3 +13,24 @@ export const CARD_DETAILS = gql`
 		id
 	}
 `;
+
+export const REVIEW_INFO = gql`
+	fragment ReviewDetails on Review {
+		repository {
+			id
+			fullName
+		}
+		rating
+		createdAt
+		text
+	}
+`;
+
+export const PAGE_INFO = gql`
+	fragment PageDetails on PageInfo {
+		startCursor
+		hasNextPage
+		hasPreviousPage
+		endCursor
+	}
+`;

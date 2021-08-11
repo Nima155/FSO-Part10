@@ -11,6 +11,7 @@ import { useStyles } from "../styles/styles";
 import SingleRepositoryItem from "./SingleRepositoryItem";
 import ReviewForm from "./ReviewForm";
 import SignUp from "./SignUp";
+import IndividualsReviewList from "./IndividualsReviewList";
 
 const Main = () => {
 	const styles = useStyles();
@@ -19,18 +20,22 @@ const Main = () => {
 			<View style={styles.container}>
 				<AppBar />
 				<Switch>
-					<Route path="/sign_up">
+					<Route path="/my_reviews" exact>
+						<IndividualsReviewList />
+					</Route>
+					<Route path="/sign_up" exact>
 						<SignUp />
 					</Route>
 					<Route path="/sign_in" exact>
 						<SignIn />
 					</Route>
-					<Route path="/create_review">
+					<Route path="/create_review" exact>
 						<ReviewForm />
 					</Route>
-					<Route path="/:id">
+					<Route path="/:id" exact>
 						<SingleRepositoryItem />
 					</Route>
+
 					<Route path="/" exact>
 						<RepositoryList />
 					</Route>
