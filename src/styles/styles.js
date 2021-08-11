@@ -5,6 +5,10 @@ export const useStyles = () => {
 	const theme = useTheme();
 
 	const styles = StyleSheet.create({
+		rowContainer: {
+			flexDirection: "row",
+		},
+
 		tabItem: {
 			color: theme.color.primaryText,
 			padding: theme.spacing.L,

@@ -20,6 +20,7 @@ export const REVIEW_INFO = gql`
 			id
 			fullName
 		}
+		id
 		rating
 		createdAt
 		text
