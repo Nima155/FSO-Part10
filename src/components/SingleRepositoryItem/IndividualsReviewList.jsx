@@ -7,6 +7,7 @@ import { useStyles } from "../../styles/styles";
 import ReviewItem from "./ReviewItem";
 import ItemSeparator from "../ItemSeparator";
 import Text from "../Text";
+
 export default function IndividualsReviewList() {
 	const { data, loading } = useQuery(GET_AUTHORIZED_USER, {
 		fetchPolicy: "cache-and-network",
@@ -29,7 +30,7 @@ export default function IndividualsReviewList() {
 		);
 	}
 
-	if (!data.authorizedUser.reviews.edges.length) {
+	if (!data.authorizedUser?.reviews?.edges?.length) {
 		return (
 			<Surface style={[styles.container, styles.centeredContainer]}>
 				<Text fontSize="subheading">You have not reviewed anything</Text>

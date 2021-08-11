@@ -29,6 +29,7 @@ export const useStyles = () => {
 			paddingTop: Constants.statusBarHeight,
 			backgroundColor: theme.color.appBarBackground,
 			flexDirection: "row",
+			justifyContent: "flex-start",
 		},
 		cardSeparator: {
 			height: theme.spacing.L,
