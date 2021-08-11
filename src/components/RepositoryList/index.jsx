@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { FlatList, Pressable, View } from "react-native";
-import RepositoryItem from "./RepositoryItem";
-import { useStyles } from "../styles/styles";
-import useRepositories from "../hooks/useRepositories";
+import RepositoryItem from "../RepositoryItem";
+import { useStyles } from "../../styles/styles";
+import useRepositories from "../../hooks/useRepositories";
 import { useHistory } from "react-router-native";
 import RepositorySortSelector from "./RepositorySortSelector";
 import { Searchbar } from "react-native-paper";
 import { useDebounce } from "use-debounce/lib";
-
-export const ItemSeparator = () => {
-	const { cardSeparator } = useStyles();
-	return <View style={cardSeparator} />;
-};
+import ItemSeparator from "../ItemSeparator";
 
 export const RepositoryListContainer = ({
 	repositories,

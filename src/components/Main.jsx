@@ -11,7 +11,7 @@ import { useStyles } from "../styles/styles";
 import SingleRepositoryItem from "./SingleRepositoryItem";
 import ReviewForm from "./ReviewForm";
 import SignUp from "./SignUp";
-import IndividualsReviewList from "./IndividualsReviewList";
+import IndividualsReviewList from "./SingleRepositoryItem/IndividualsReviewList";
 
 const Main = () => {
 	const styles = useStyles();

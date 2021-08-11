@@ -7,6 +7,7 @@ import { useStyles } from "../styles/styles";
 import Text from "./Text";
 import useSignUp from "../hooks/useSignUp";
 import { useHistory } from "react-router-native";
+
 export default function SignUp() {
 	const styles = useStyles();
 	const [signUp] = useSignUp();

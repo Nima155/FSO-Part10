@@ -1,15 +1,15 @@
 // import { useQuery } from "@apollo/client";
 import React from "react";
-import { ItemSeparator } from "./RepositoryList";
-import ReviewItem from "./RepositoryItem/ReviewItem";
+import ItemSeparator from "../ItemSeparator";
+import ReviewItem from "./ReviewItem";
 import { FlatList, View } from "react-native";
-import Text from "./Text";
+import Text from "../Text";
 
 import { useParams } from "react-router";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "../../styles/styles";
 // import { GET_INDIVIDUAL_REPOSITORY } from "../graphql/queries";
-import RepositoryItem from "./RepositoryItem";
-import useReviews from "../hooks/useReviews";
+import RepositoryItem from "../RepositoryItem";
+import useReviews from "../../hooks/useReviews";
 
 export default function SingleRepositoryItem() {
 	const styles = useStyles();

@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { FlatList } from "react-native";
 import { ActivityIndicator, Colors, Surface } from "react-native-paper";
-import { GET_AUTHORIZED_USER } from "../graphql/queries";
-import { useStyles } from "../styles/styles";
-import ReviewItem from "./RepositoryItem/ReviewItem";
-import { ItemSeparator } from "./RepositoryList";
-import Text from "./Text";
+import { GET_AUTHORIZED_USER } from "../../graphql/queries";
+import { useStyles } from "../../styles/styles";
+import ReviewItem from "./ReviewItem";
+import ItemSeparator from "../ItemSeparator";
+import Text from "../Text";
 export default function IndividualsReviewList() {
 	const { data, loading } = useQuery(GET_AUTHORIZED_USER, {
 		fetchPolicy: "cache-and-network",

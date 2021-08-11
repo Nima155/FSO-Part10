@@ -5,7 +5,7 @@ import CardStats from "./CardStats";
 import CardBio from "./CardBio";
 import * as Linking from "expo-linking";
 import { useStyles } from "../../styles/styles";
-import { ItemSeparator } from "../RepositoryList";
+import ItemSeparator from "../ItemSeparator";
 export default function RepositoryItem({
 	style,
 	stargazersCount,

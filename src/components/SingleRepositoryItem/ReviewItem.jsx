@@ -29,7 +29,7 @@ function ReviewButtonGroup({ reviewId, repoId }) {
 					getReview: true,
 				},
 				data: produce(currentState, (state) => {
-					// updating the cache by utilizing immer
+					// updating the cache by utilizing immer.. although not effectively
 					state.authorizedUser.reviews.edges =
 						state.authorizedUser.reviews.edges.filter(
 							(e) => e.node.id !== reviewId
